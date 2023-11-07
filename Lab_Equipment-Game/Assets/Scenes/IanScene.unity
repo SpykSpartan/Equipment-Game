@@ -729,8 +729,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 381823431}
   pivot: {fileID: 916218336}
-  offset: {x: 0, y: 0, z: 0}
-  useOffsetValues: 0
+  offset: {x: 0, y: 5, z: 10}
+  useOffsetValues: 1
   rotateSpeed: 5
   maxVeiwAngle: 65
   minVeiwAngle: -45
