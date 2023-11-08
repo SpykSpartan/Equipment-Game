@@ -166,7 +166,7 @@ public class EnemyDefault : MonoBehaviour
         {
             Debug.Log("Test Message- Enemy too close.");
             Debug.Log(Vector3.Distance(player.position, transform.position));
-            storedgoal = Vector3.MoveTowards(transform.position,( player.position -transform.position).normalized, Time.deltaTime * speed * 10);
+            storedgoal = Vector3.MoveTowards(transform.position,( player.position -transform.position).normalized * 2, Time.deltaTime * speed * 10);
         }
         
         if (storedgoal.y < playerOffset.y)
