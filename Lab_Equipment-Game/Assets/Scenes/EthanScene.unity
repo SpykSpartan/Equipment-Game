@@ -438,6 +438,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2431610653789177959, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+      propertyPath: personalSpaceRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431610653789177959, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
       propertyPath: patrol.Array.data[0].x
       value: 15
       objectReference: {fileID: 0}
@@ -473,6 +477,22 @@ PrefabInstance:
       propertyPath: patrol.Array.data[2].z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4640955511831364971, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640955511831364971, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640955511831364971, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391163430446710430, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 20cc336b42df27145a3c87e5279f71f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
 --- !u!1 &2121157780
