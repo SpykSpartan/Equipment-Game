@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
         buttonArray = new Button[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
-            buttonArray[i] = transform.GetChild(i).gameObject.GetComponent<Button>();
+            buttonArray[i] = transform.GetChild(i).GetComponent<Button>();
     }
 
     public void TryOpen() //Called each time a child button is activated

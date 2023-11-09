@@ -5,16 +5,21 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private Checkpoint[] checkpointArray;
+    private Checkpoint[] checkpointArray;
 
     private int currentCheckpoint;
 
     private void Start()
     {
         currentCheckpoint = 0;
+
+        checkpointArray = new Checkpoint[transform.childCount];
+
+        for (int i = 0; i < transform.childCount; i++)
+            checkpointArray[i] = transform.GetChild(i).GetComponent<Checkpoint>();
     }
 
-    public void CheckpointReach(Checkpoint checkpoint) //This function is never called. Unsure of how to manage collisions with PlayerController
+    public void CheckpointReach(Checkpoint checkpoint)
     {
         if (checkpoint.checkpointNumber > currentCheckpoint)
             currentCheckpoint = checkpoint.checkpointNumber;
