@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     public float jumpForce;
     public CharacterController controller;
+    public float dashForce;
     //public Rigidbody rb;
 
     //Movement Variables
@@ -43,6 +44,12 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection.normalized * playerSpeed;
         moveDirection.y = yStore;
 
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("shifty");
+            controller.Move((moveDirection * dashForce) * Time.deltaTime);
+        }
+
         // checks for ground and if Space is pressed
         if(controller.isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -56,6 +63,6 @@ public class PlayerController : MonoBehaviour
 
         // jump physics
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        controller.Move(moveDirection* Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }
