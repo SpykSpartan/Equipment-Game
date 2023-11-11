@@ -60,9 +60,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
-                UIManager.instance.PauseGame();
+            {
+                UIManager.Instance.PauseGame();
+                isPaused = true;
+            }
             else
-                UIManager.instance.UnPauseGame();
+            {
+                UIManager.Instance.UnPauseGame();
+                isPaused = false;
+            }
         }
 
         // jump physics

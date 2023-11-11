@@ -4,35 +4,43 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    GameObject playerReference;
-    GameObject pauseMenu;
-    
-    
-    public static UIManager instance { get; private set; }
+    [SerializeField] GameObject playerReference;
+    [SerializeField] GameObject cameraReference;
+    [SerializeField] GameObject pauseMenu;
 
-    //Creating UIManager Singleton
+    private float storedRotateSpeed;
+
+    private static UIManager _instance;
+
+    public static UIManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                Debug.Log("manager null");
+            }
+            return _instance;
+        }
+    }
+
     private void Awake()
     {
-        if (instance != null && instance != this)
-            Destroy(this);
-        else
-            instance = this;
-
-        playerReference = GameObject.Find("Player");
-        pauseMenu = GameObject.Find("Pause Menu");
+        _instance = this;
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        playerReference.GetComponent<CharacterController>().enabled = false;
+        storedRotateSpeed = cameraReference.GetComponent<CameraController>().rotateSpeed;
+        cameraReference.GetComponent<CameraController>().rotateSpeed = 0;
     }
 
     public void UnPauseGame()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        playerReference.GetComponent<CharacterController>().enabled = true;
+        cameraReference.GetComponent<CameraController>().rotateSpeed = storedRotateSpeed;
     }
 }
