@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     public float gravityScale;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     void Start()
     {
@@ -62,12 +62,10 @@ public class PlayerController : MonoBehaviour
             if (!isPaused)
             {
                 UIManager.Instance.PauseGame();
-                isPaused = true;
             }
             else
             {
                 UIManager.Instance.UnPauseGame();
-                isPaused = false;
             }
         }
 

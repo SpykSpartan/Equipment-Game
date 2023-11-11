@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 30a42294fb69387458ad1b82393028de
+  - enabled: 1
+    path: Assets/Scenes/ConorScene.unity
+    guid: 6d6a7b70a3ca875459a08d1748a56e04
   m_configObjects: {}
