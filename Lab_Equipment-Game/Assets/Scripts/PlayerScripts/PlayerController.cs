@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     public float gravityScale;
 
+    private bool isPaused = false;
+
     void Start()
     {
         //RigidBody
@@ -52,6 +54,15 @@ public class PlayerController : MonoBehaviour
             // applise jump
             moveDirection.y = jumpForce;
             
+        }
+
+        //Detect pause input
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+                UIManager.instance.PauseGame();
+            else
+                UIManager.instance.UnPauseGame();
         }
 
         // jump physics
