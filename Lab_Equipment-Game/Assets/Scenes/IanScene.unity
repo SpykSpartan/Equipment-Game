@@ -191,37 +191,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &344864483
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344864484}
-  m_Layer: 0
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &344864484
+--- !u!4 &344864484 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 226307141290902612, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+  m_PrefabInstance: {fileID: 4547272633101850387}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344864483}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 381823431}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &381823431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4547272633458507476, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
@@ -710,31 +684,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122268325}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1176024240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4547272633458507474, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
-  m_PrefabInstance: {fileID: 4547272633101850387}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1176024241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176024240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e0d95f5dd592af4cb3fc1a1551aeec6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1097870446502900568, guid: ea78452542c062c4181a20218d218f9c, type: 3}
-  shootForce: 50
-  timeBetweenShooting: 0.2
-  timeBetweenShots: 0
-  allowButtonHold: 0
-  fpsCam: {fileID: 1333702385}
-  attackPoint: {fileID: 344864484}
-  allowInvoke: 1
 --- !u!1 &1230646692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,5 +1100,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5675959778820005667, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 1333702385}
+    - target: {fileID: 5675959778820005667, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 344864484}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedee16c7c0977742b456664dbb87e31, type: 3}

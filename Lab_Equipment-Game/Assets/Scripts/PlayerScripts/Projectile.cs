@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
         currentBullet.transform.forward = direction.normalized;
 
         //Add forces to bullet
-        currentBullet.GetComponent<Rigidbody>().AddForce(-direction.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
 
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
         if (allowInvoke)
@@ -85,6 +85,8 @@ public class Projectile : MonoBehaviour
             Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
         }
+
+        Destroy(currentBullet, 5f);
     }
     private void ResetShot()
     {

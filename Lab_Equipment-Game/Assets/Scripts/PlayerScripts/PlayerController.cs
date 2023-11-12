@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
         {
             Debug.Log("shifty");
-            controller.Move((moveDirection * dashForce) * Time.deltaTime);
+            controller.Move((new Vector3(moveDirection.x, 0, moveDirection.z) * dashForce) * Time.deltaTime);
             hasDashed = true;
         }
 
