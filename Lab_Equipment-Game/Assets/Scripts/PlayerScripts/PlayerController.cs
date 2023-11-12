@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     public float gravityScale;
 
+    //bool
+    public bool hasDashed = false;
+
     void Start()
     {
         //RigidBody
@@ -44,25 +47,16 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection.normalized * playerSpeed;
         moveDirection.y = yStore;
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(controller.isGrounded)
+        {
+            hasDashed = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
         {
             Debug.Log("shifty");
             controller.Move((moveDirection * dashForce) * Time.deltaTime);
-        }
-
-
-        if(!controller.isGrounded)
-        {
-            while(Time.deltaTime < 1)
-            {
-                gravityScale = 0.005f;
-            }
-            gravityScale = 0.5f;
-        }
-
-        if(controller.isGrounded)
-        {
-            gravityScale = 2;
+            hasDashed = true;
         }
 
         // checks for ground and if Space is pressed
