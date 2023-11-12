@@ -13,10 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] TextMeshProUGUI timerDisplay;
     [SerializeField] TextMeshProUGUI checkpointDisplay;
-    [SerializeField] Image tutorialDisplay;
+    [SerializeField] List<GameObject> tutorialPrompts;
 
     private float storedRotateSpeed;
     private float time;
+    private int currentPrompt;
 
     private static UIManager _instance;
 
@@ -35,6 +36,12 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+    }
+
+    private void Start()
+    {
+        TutorialPrompt(tutorialPrompts[0]);
+        currentPrompt = 0;
     }
 
     private void Update()
@@ -69,10 +76,48 @@ public class UIManager : MonoBehaviour
     public void UpdateCheckpointDisplay(int newCheckpoint)
     {
         checkpointDisplay.text = "Checkpoint " + newCheckpoint + "/4";
+
+        if (newCheckpoint == 1)
+        {
+            TutorialPrompt(tutorialPrompts[1]);
+            currentPrompt = 1;
+        }
+        if (newCheckpoint == 3)
+        {
+            TutorialPrompt(tutorialPrompts[2]);
+            currentPrompt = 2;
+        }
     }
 
     public void LoadScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);
+    }
+
+    private void TutorialPrompt(GameObject prompt)
+    {
+        prompt.SetActive(true);
+        StartCoroutine("Fade");
+    }
+
+    private IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(4f);
+        
+        Color imageColor = tutorialPrompts[currentPrompt].GetComponent<Image>().color;
+        Color textColor = tutorialPrompts[currentPrompt].GetComponentInChildren<TextMeshProUGUI>().color;
+
+        for (float alpha = 0.47f; alpha >= 0; alpha -= 0.1f)
+        {
+            imageColor.a = alpha;
+            tutorialPrompts[currentPrompt].GetComponent<Image>().color = imageColor;
+
+            textColor.a = alpha;
+            tutorialPrompts[currentPrompt].GetComponentInChildren<TextMeshProUGUI>().color = textColor;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        tutorialPrompts[currentPrompt].SetActive(false);
     }
 }

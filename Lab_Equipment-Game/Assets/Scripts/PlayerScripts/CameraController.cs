@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     // Transforms for camera
     public Transform target;
     public Transform pivot;
+    public Transform offsetHeight;
 
     // Offeset from player
     public Vector3 offset;
@@ -82,6 +83,6 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, target.position.y - 0.5f, transform.position.z);
         }
 
-        transform.LookAt(target);
+        transform.LookAt(offsetHeight);
     }
 }
