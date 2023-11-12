@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     public float gravityScale;
 
+
     //bool
     public bool hasDashed = false;
+    public bool isPaused = false;
+
 
     void Start()
     {
@@ -67,6 +70,19 @@ public class PlayerController : MonoBehaviour
 
             // applise jump
             moveDirection.y = jumpForce;
+        }
+
+        //Detect pause input
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                UIManager.Instance.PauseGame();
+            }
+            else
+            {
+                UIManager.Instance.UnPauseGame();
+            }
         }
 
         // jump physics
