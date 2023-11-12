@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     public float jumpForce;
     public CharacterController controller;
+    public float dashForce;
+    public bool hasDash = false;
     //public Rigidbody rb;
 
     //Movement Variables
@@ -48,12 +50,19 @@ public class PlayerController : MonoBehaviour
         // checks for ground and if Space is pressed
         if(controller.isGrounded && Input.GetButtonDown("Jump"))
         {
+            hasDash = true;
             // Resets the gravity scale to 0
             moveDirection.y = 0f;
 
             // applise jump
             moveDirection.y = jumpForce;
             
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && hasDash)
+        {
+            controller.Move(moveDirection * dashForce * Time.deltaTime * 2);
+            hasDash = false;
         }
 
         //Detect pause input

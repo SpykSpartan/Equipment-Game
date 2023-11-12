@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
-  jumpForce: 10
+  jumpForce: 8
   controller: {fileID: 4547272633458507483}
-  gravityScale: 2
+  gravityScale: 1.25
+  isPaused: 0
 --- !u!143 &4547272633458507483
 CharacterController:
   m_ObjectHideFlags: 0
