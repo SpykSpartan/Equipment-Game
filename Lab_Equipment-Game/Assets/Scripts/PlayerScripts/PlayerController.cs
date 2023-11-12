@@ -10,13 +10,18 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float dashForce;
     public bool hasDash = false;
+
     //public Rigidbody rb;
 
     //Movement Variables
     private Vector3 moveDirection;
     public float gravityScale;
 
+
+    //bool
+    public bool hasDashed = false;
     public bool isPaused = false;
+
 
     void Start()
     {
@@ -47,6 +52,18 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection.normalized * playerSpeed;
         moveDirection.y = yStore;
 
+        if(controller.isGrounded)
+        {
+            hasDashed = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
+        {
+            Debug.Log("shifty");
+            controller.Move((moveDirection * dashForce) * Time.deltaTime);
+            hasDashed = true;
+        }
+
         // checks for ground and if Space is pressed
         if(controller.isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -56,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
             // applise jump
             moveDirection.y = jumpForce;
-            
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && hasDash)
@@ -80,6 +96,6 @@ public class PlayerController : MonoBehaviour
 
         // jump physics
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        controller.Move(moveDirection* Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }
