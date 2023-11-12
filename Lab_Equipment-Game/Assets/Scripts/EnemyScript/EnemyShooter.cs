@@ -126,7 +126,7 @@ public class EnemyShooter : EnemyDefault
 
     protected void Fire()
     {
-        Instantiate(bulletRef, bulletSpawnRef.transform.position, bulletSpawnRef.transform.rotation);
+        //Instantiate(bulletRef, bulletSpawnRef.transform.position, bulletSpawnRef.transform.rotation);
     }
     
 

@@ -30,6 +30,9 @@ public class EnemyDefault : MonoBehaviour
     public float maxAngerLinger = 2.0f;
     public float angerLingerTimer = 0.0f;
     public Animator alertAnim;
+
+    public int health;
+    public GameObject deathPrefab;
     //movement vars.
     public float speed;
 
@@ -182,5 +185,16 @@ public class EnemyDefault : MonoBehaviour
         return target != null && (seeTarget || (!seeTarget && angerLingerTimer > 0.0f));
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            health--;
+            if (health <= 0)
+            {
+                Instantiate(deathPrefab, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }
