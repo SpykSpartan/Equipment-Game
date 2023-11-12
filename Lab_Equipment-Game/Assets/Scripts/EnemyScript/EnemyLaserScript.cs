@@ -11,6 +11,8 @@ public class EnemyLaserScript : MonoBehaviour
 
     public float maxChargeTimer; //assigned on awake by EnemyShooter...
     public float chargeTimer;
+
+    private float storeWidth;
     public Material color1; //default
     public Material color2; //right before shooting.
 
@@ -36,14 +38,19 @@ public class EnemyLaserScript : MonoBehaviour
 
     private void LineUpdate()
     {
-
-        laserLine.SetWidth(0.05f, 0.05f);
+        laserLine.startWidth = 0.05f;
+        laserLine.endWidth = 0.05f;
         if (chargeTimer < 0.3f)
         {
             laserLine.material = color2;
         }
         else
             laserLine.material = color1;
+        if (chargeTimer < 0.2f)
+        {
+            laserLine.startWidth = 0.3f;
+            laserLine.endWidth = 0.3f;
+        }
     }
 
     

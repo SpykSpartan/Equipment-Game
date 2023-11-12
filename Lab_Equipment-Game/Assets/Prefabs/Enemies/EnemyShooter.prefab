@@ -5254,6 +5254,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b34fcca004b781443b1092954d195d9d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6478536213147159724, guid: fa3b150b4e591844f87be21aaa34e7e7, type: 3}
+    - target: {fileID: -5754084199372789682, guid: b34fcca004b781443b1092954d195d9d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2124705421725058983, guid: fa3b150b4e591844f87be21aaa34e7e7, type: 3}
     - target: {fileID: 919132149155446097, guid: b34fcca004b781443b1092954d195d9d, type: 3}
       propertyPath: m_Name
       value: bowlerhatwithaamachinegun (4)
@@ -5431,6 +5439,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8691d6cc145282144b784ec479d0bd53, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 2aaebec14a534b348bd2aefea73a74ef, type: 3}
     - target: {fileID: 919132149155446097, guid: 8691d6cc145282144b784ec479d0bd53, type: 3}
       propertyPath: m_Name
       value: machinegun
