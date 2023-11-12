@@ -77,9 +77,7 @@ public class EnemyShooter : EnemyDefault
             ApproachPoint(patrol[patrolNext]);
             if ((transform.position - patrol[patrolNext]).magnitude < 0.1) //if enemy is (approximatly) on top of the patrol point
             {
-                Debug.Log("Test Message- Enemy Reached patrol point");
                 confusedTimer = 1; //adds a short pause
-                Debug.Log("Test Message- Enemy is Confused");
                 patrolNext += 1;
                 if (patrolNext > (patrol.Count - 1)) //if you ahve completed the patrol list, flip back to 0
                     patrolNext = 0;

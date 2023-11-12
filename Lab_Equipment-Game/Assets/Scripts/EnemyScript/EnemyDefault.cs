@@ -42,8 +42,6 @@ public class EnemyDefault : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         visionCollider = GetComponents<SphereCollider>()[0];
         hurtCollider = GetComponents<SphereCollider>()[1];
-        Debug.Log(visionCollider.radius);
-        Debug.Log(hurtCollider.radius);
 
         //Applies collider radii to the colliders.
         visionCollider.radius = visionRadius;
@@ -103,9 +101,8 @@ public class EnemyDefault : MonoBehaviour
             ApproachPoint(patrol[patrolNext]);
             if ((transform.position - patrol[patrolNext]).magnitude < 0.1) //if enemy is (approximatly) on top of the patrol point
             {
-                Debug.Log("Test Message- Enemy Reached patrol point");
+                
                 confusedTimer = 1; //adds a short pause
-                Debug.Log("Test Message- Enemy is Confused");
                 patrolNext += 1;
                 if (patrolNext > (patrol.Count - 1)) //if you ahve completed the patrol list, flip back to 0
                     patrolNext = 0;
@@ -121,7 +118,6 @@ public class EnemyDefault : MonoBehaviour
         if (other.tag == "Player")
         {
             confusedTimer = 0.0f; //override confusion
-            Debug.Log("TestMessage- Player Detected by Enemy");
             target = other.transform; //Target is assigned here.
             seeTarget = true; //Confirm that player is in range
             angerLingerTimer = maxAngerLinger; //maxes out linger timer.
@@ -133,7 +129,6 @@ public class EnemyDefault : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("TestMessage- Player Exited Enemy Detection");
             seeTarget = false;
             angerLingerTimer = maxAngerLinger; //redundant, but maxes out linger timer.
             //Target is *not* unassigned here.
@@ -156,7 +151,6 @@ public class EnemyDefault : MonoBehaviour
 
         if (Vector3.Distance(player.position, transform.position) - personalSpaceRadius < 0.1 && Vector3.Distance(player.position, transform.position) - personalSpaceRadius > -0.1)
         {
-            Debug.Log("TestMessage- Perfect distance");
             return;
         }
         
@@ -167,8 +161,6 @@ public class EnemyDefault : MonoBehaviour
         }
         else
         {
-            Debug.Log("Test Message- Enemy too close.");
-            Debug.Log(Vector3.Distance(player.position, transform.position));
             storedgoal = Vector3.MoveTowards(transform.position,( player.position -transform.position).normalized, Time.deltaTime * speed * 10);
         }
         
