@@ -50,6 +50,21 @@ public class PlayerController : MonoBehaviour
             controller.Move((moveDirection * dashForce) * Time.deltaTime);
         }
 
+
+        if(!controller.isGrounded)
+        {
+            while(Time.deltaTime < 1)
+            {
+                gravityScale = 0.005f;
+            }
+            gravityScale = 0.5f;
+        }
+
+        if(controller.isGrounded)
+        {
+            gravityScale = 2;
+        }
+
         // checks for ground and if Space is pressed
         if(controller.isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -58,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
             // applise jump
             moveDirection.y = jumpForce;
-            
         }
 
         // jump physics

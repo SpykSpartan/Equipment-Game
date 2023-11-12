@@ -257,7 +257,7 @@ MonoBehaviour:
   playerSpeed: 10
   jumpForce: 10
   controller: {fileID: 381823432}
-  dashForce: 0
+  dashForce: 30
   gravityScale: 2
 --- !u!23 &381823429
 MeshRenderer:
@@ -341,7 +341,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &381823433
 MonoBehaviour:
