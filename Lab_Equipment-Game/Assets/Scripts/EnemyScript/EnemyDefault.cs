@@ -29,12 +29,12 @@ public class EnemyDefault : MonoBehaviour
     public bool engaging = false;
     public float maxAngerLinger = 2.0f;
     public float angerLingerTimer = 0.0f;
-
+    public Animator alertAnim;
     //movement vars.
     public float speed;
 
     
-    private void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody>();
         visionCollider = GetComponents<SphereCollider>()[0];
@@ -177,7 +177,7 @@ public class EnemyDefault : MonoBehaviour
         transform.position = storedgoal;
     }
 
-    private bool ShouldEngage() //bool return on wether enemy should be engaging the player. Yes, i compressed it all cuz its funny.
+    protected bool ShouldEngage() //bool return on wether enemy should be engaging the player. Yes, i compressed it all cuz its funny.
     {
         return target != null && (seeTarget || (!seeTarget && angerLingerTimer > 0.0f));
     }
