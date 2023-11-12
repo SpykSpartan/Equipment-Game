@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,9 +11,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject cameraReference;
 
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject optionsMenu;
+    [SerializeField] TextMeshProUGUI timerDisplay;
+    [SerializeField] TextMeshProUGUI checkpointDisplay;
+    [SerializeField] Image tutorialDisplay;
 
     private float storedRotateSpeed;
+    private float time;
 
     private static UIManager _instance;
 
@@ -30,6 +35,12 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        timerDisplay.text = "Time:  " + ((int)time / 60) + ":" + ((int)time % 60).ToString("D2");
     }
 
     public void PauseGame()
@@ -53,6 +64,11 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         playerReference.GetComponent<PlayerController>().isPaused = false;
+    }
+
+    public void UpdateCheckpointDisplay(int newCheckpoint)
+    {
+        checkpointDisplay.text = "Checkpoint " + newCheckpoint + "/4";
     }
 
     public void LoadScene(string sceneToLoad)

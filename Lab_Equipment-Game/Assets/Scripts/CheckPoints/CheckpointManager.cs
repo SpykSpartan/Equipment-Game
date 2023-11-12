@@ -22,7 +22,10 @@ public class CheckpointManager : MonoBehaviour
     public void CheckpointReach(Checkpoint checkpoint)
     {
         if (checkpoint.checkpointNumber > currentCheckpoint)
+        {
             currentCheckpoint = checkpoint.checkpointNumber;
+            UIManager.Instance.UpdateCheckpointDisplay(currentCheckpoint);
+        }
     }
 
     private void Update()
