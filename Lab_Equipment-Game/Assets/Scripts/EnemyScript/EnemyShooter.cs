@@ -18,6 +18,11 @@ public class EnemyShooter : EnemyDefault
     private float bulletChargeMax; //how long for the bullet to fire
     private float currentCharge;
 
+    [SerializeField]
+    private AudioSource audioRef;
+
+    public List<AudioClip> audios = new List<AudioClip>();
+
     private new void Awake()
     {
         base.Awake(); //all the classics.
@@ -50,14 +55,21 @@ public class EnemyShooter : EnemyDefault
         if (ShouldEngage())
         {
             if (engaging == false)
+            {
                 alertAnim.SetTrigger("Alerted");
+                audioRef.clip = audios[0];
+                Debug.Log("Test Message- Alerted");
+               audioRef.Play();
                 engaging = true;
+            }
         }
         else
         {
             if (engaging == true)
             {
                 alertAnim.SetTrigger("Confused");
+                audioRef.clip = audios[1];
+                audioRef.Play();
                 engaging = false;
             }
 
@@ -125,9 +137,24 @@ public class EnemyShooter : EnemyDefault
     protected void Fire()
     {
         UIManager.Instance.TakeDamage();
+        audioRef.clip = audios[3];
+        audioRef.Play();
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health--;
+            if (health <= 0)
+            {
+                Instantiate(deathPrefab, transform.position, transform.rotation);
+                audioRef.clip = audios[2];
+                audioRef.Play();
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
 
 
