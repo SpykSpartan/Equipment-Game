@@ -30,6 +30,19 @@ public class Door : MonoBehaviour
 
     private void OpenDoor()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 15, transform.position.z); //TEMPORARY - update when animation ready
+        //transform.position = new Vector3(transform.position.x, transform.position.y - 15, transform.position.z); //TEMPORARY - update when animation ready
+        StartCoroutine(OpenAnimation());
+    }
+
+    private IEnumerator OpenAnimation()
+    {
+        float height = transform.position.y;
+        
+        for (float targetHeight = transform.position.y; targetHeight <= (transform.position.y + 15); targetHeight += 0.1f)
+        {
+            height = targetHeight;
+            transform.position = new Vector3(transform.position.x, height, transform.position.z);
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
