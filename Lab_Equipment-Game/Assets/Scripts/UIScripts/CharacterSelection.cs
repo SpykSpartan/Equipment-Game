@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSelection : MonoBehaviour
 {
-    private int selectedCharacter;
+    public int selectedCharacter = 0;
 
     public void ChooseCharacter(int character)
     {

@@ -16606,6 +16606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 672872235}
     - target: {fileID: 451086975144972687, guid: 1615acfc0026a284c92bcf0abad7ba87, type: 3}
+      propertyPath: offset.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 451086975144972687, guid: 1615acfc0026a284c92bcf0abad7ba87, type: 3}
       propertyPath: rotateSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -20792,9 +20796,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1323885586955218979, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395271144430947952, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936446131165106391, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984984762220257814, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716375749677610950, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2929400777741153650, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
       propertyPath: m_Name
       value: CameraHeightOffset
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107486133495112764, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546619098135785995, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4547272633458507473, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
       propertyPath: dashForce
@@ -20807,6 +20839,10 @@ PrefabInstance:
     - target: {fileID: 4547272633458507474, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547272633458507474, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4547272633458507474, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
       propertyPath: m_TagString
@@ -20856,6 +20892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5389018589512155560, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5675959778820005667, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
       propertyPath: fpsCam
       value: 
@@ -20864,6 +20904,22 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1360552170}
+    - target: {fileID: 6272031398327015757, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821690088940587936, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169132174662660817, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900361579012176950, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedee16c7c0977742b456664dbb87e31, type: 3}
 --- !u!4 &1360552170 stripped

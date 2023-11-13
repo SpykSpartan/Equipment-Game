@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public bool hasDashed = false;
     public bool isPaused = false;
 
+    private int characterSelected;
+
 
     void Start()
     {
@@ -30,6 +32,9 @@ public class PlayerController : MonoBehaviour
 
         //Gets aspects of the player
         controller = GetComponent<CharacterController>();
+
+        characterSelected = GameObject.Find("CharacterSelector").GetComponent<CharacterSelection>().selectedCharacter;
+        transform.GetChild(characterSelected).gameObject.SetActive(true);
     }
 
     void Update()
