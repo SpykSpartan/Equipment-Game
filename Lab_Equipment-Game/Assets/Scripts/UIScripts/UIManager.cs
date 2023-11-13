@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winScreen;
+    [SerializeField] TextMeshProUGUI finalTimerText;
     [SerializeField] GameObject lossScreen;
 
     [SerializeField] Transform healthBar;
@@ -152,6 +153,14 @@ public class UIManager : MonoBehaviour
 
     public void GameWon()
     {
-        Debug.Log("you win");
+        Time.timeScale = 0;
+        winScreen.SetActive(true);
+        finalTimerText.text = "TIME:  " + ((int)time / 60) + ":" + ((int)time % 60).ToString("D2");
+
+        storedRotateSpeed = cameraReference.GetComponent<CameraController>().rotateSpeed;
+        cameraReference.GetComponent<CameraController>().rotateSpeed = 0;
+        Cursor.lockState = CursorLockMode.None;
+
+        playerReference.GetComponent<PlayerController>().isPaused = true;
     }
 }
