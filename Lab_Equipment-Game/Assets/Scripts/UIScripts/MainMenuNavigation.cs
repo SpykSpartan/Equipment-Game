@@ -13,6 +13,12 @@ public class MainMenuNavigation : MonoBehaviour
         characterSelect.SetActive(true);
     }
 
+    public void GoBack()
+    {
+        startButtons.SetActive(true);
+        characterSelect.SetActive(false);
+    }
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
