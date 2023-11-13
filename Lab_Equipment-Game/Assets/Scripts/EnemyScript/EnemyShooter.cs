@@ -124,9 +124,17 @@ public class EnemyShooter : EnemyDefault
 
     protected void Fire()
     {
-        //Contact player health to deal damage
+        UIManager.Instance.TakeDamage();
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 
 }

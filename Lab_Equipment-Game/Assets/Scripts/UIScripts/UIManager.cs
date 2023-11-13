@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject cameraReference;
 
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] Transform healthBar;
     [SerializeField] TextMeshProUGUI timerDisplay;
     [SerializeField] TextMeshProUGUI checkpointDisplay;
     [SerializeField] List<GameObject> tutorialPrompts;
@@ -119,5 +120,27 @@ public class UIManager : MonoBehaviour
         }
 
         tutorialPrompts[currentPrompt].SetActive(false);
+    }
+
+    public void TakeDamage()
+    {
+        if (healthBar.childCount != 0)
+        {
+            Destroy(healthBar.GetChild(healthBar.childCount - 1).gameObject);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("you lose");
+    }
+
+    public void GameWon()
+    {
+        Debug.Log("you win");
     }
 }
