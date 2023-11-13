@@ -179,7 +179,7 @@ public class EnemyDefault : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "PlayerBullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             health--;
             if (health <= 0)

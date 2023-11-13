@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour
 
         //check if ray hits something
         Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1, QueryTriggerInteraction.Ignore))
             targetPoint = hit.point;
         else
             targetPoint = ray.GetPoint(75); //Just a point far away from the player

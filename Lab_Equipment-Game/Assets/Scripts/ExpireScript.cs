@@ -6,7 +6,7 @@ public class ExpireScript : MonoBehaviour
 {
     public float expireTime;
     public float lifeTime;
-    private void Awake()
+    private void Update()
     {
         lifeTime += Time.deltaTime;
         if (lifeTime > expireTime)

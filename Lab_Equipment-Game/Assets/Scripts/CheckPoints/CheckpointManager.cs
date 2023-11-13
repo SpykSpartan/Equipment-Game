@@ -34,6 +34,7 @@ public class CheckpointManager : MonoBehaviour
         {
             playerTransform.gameObject.GetComponent<CharacterController>().enabled = false;
             playerTransform.position = checkpointArray[currentCheckpoint].resetPositionTo;
+            UIManager.Instance.TakeDamage();
             playerTransform.gameObject.GetComponent<CharacterController>().enabled = true;
         }
     }

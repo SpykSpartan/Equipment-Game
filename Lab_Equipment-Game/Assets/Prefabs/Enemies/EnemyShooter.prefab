@@ -190,7 +190,7 @@ MonoBehaviour:
   angerLingerTimer: 0
   alertAnim: {fileID: 2278216269465648844}
   health: 0
-  deathPrefab: {fileID: 2027174247776297556, guid: e50f429e0735ba84f8bfc933ba8de9d3, type: 3}
+  deathPrefab: {fileID: 3269609342778283264, guid: ca499da58eba98b42ade8b7d22783016, type: 3}
   speed: 0.5
   barrel: {fileID: 4495677412186179530}
   bulletRef: {fileID: 0}
