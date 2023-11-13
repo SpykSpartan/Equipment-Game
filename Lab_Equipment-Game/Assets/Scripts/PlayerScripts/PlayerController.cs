@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection.normalized * playerSpeed;
         moveDirection.y = yStore;
 
+        Debug.Log(moveDirection);
+
         if(controller.isGrounded)
         {
             hasDashed = false;
@@ -75,10 +77,15 @@ public class PlayerController : MonoBehaviour
             moveDirection.y = jumpForce;
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && hasDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash)
         {
             controller.Move(moveDirection * dashForce * Time.deltaTime * 2);
             hasDash = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && controller.isGrounded)
+        {
+            Emote();
         }
 
         //Detect pause input
@@ -95,7 +102,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // jump physics
-        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        if (!controller.isGrounded)
+            moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void Emote()
+    {
+
     }
 }
