@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 587065429722442794}
   - component: {fileID: 4578603296654861199}
   - component: {fileID: 1760485488572716869}
+  - component: {fileID: 4141355196537643617}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4141355196537643617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247271683670734480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2281c5ce1415add44b66778b1d0a6c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
