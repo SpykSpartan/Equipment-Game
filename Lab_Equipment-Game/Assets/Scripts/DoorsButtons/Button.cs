@@ -5,6 +5,12 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     [SerializeField] GameObject activatedButton;
+    [SerializeField] Renderer lantern;
+
+    [SerializeField] Material metalMaterial;
+    [SerializeField] Material unlitMaterial;
+
+    private Material[] materialArray;
 
     private Vector3 storedPosition;
     private Vector3 storedRotation;
@@ -20,6 +26,10 @@ public class Button : MonoBehaviour
         storedPosition = transform.position;
         storedRotation = transform.eulerAngles;
         storedScale = transform.lossyScale;
+
+        materialArray = new Material[2];
+        materialArray[0] = metalMaterial;
+        materialArray[1] = unlitMaterial;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,6 +46,8 @@ public class Button : MonoBehaviour
             activatedButton.transform.position = storedPosition;
             activatedButton.transform.eulerAngles = storedRotation;
             activatedButton.transform.localScale = storedScale;
+
+            lantern.materials = materialArray;
 
             gameObject.SetActive(false);
         }
