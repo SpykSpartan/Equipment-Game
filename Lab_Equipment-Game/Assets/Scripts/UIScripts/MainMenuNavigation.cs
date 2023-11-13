@@ -12,4 +12,9 @@ public class MainMenuNavigation : MonoBehaviour
         startButtons.SetActive(false);
         characterSelect.SetActive(true);
     }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
