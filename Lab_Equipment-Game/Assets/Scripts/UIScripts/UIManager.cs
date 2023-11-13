@@ -11,9 +11,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject cameraReference;
 
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject lossScreen;
+
     [SerializeField] Transform healthBar;
     [SerializeField] TextMeshProUGUI timerDisplay;
     [SerializeField] TextMeshProUGUI checkpointDisplay;
+
     [SerializeField] List<GameObject> tutorialPrompts;
 
     private float storedRotateSpeed;
@@ -124,7 +128,7 @@ public class UIManager : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (healthBar.childCount != 0)
+        if (healthBar.childCount != 1)
         {
             Destroy(healthBar.GetChild(healthBar.childCount - 1).gameObject);
         }
@@ -136,7 +140,14 @@ public class UIManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("you lose");
+        Time.timeScale = 0;
+        lossScreen.SetActive(true);
+
+        storedRotateSpeed = cameraReference.GetComponent<CameraController>().rotateSpeed;
+        cameraReference.GetComponent<CameraController>().rotateSpeed = 0;
+        Cursor.lockState = CursorLockMode.None;
+
+        playerReference.GetComponent<PlayerController>().isPaused = true;
     }
 
     public void GameWon()

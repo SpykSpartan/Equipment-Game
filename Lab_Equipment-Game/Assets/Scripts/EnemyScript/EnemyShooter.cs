@@ -127,13 +127,7 @@ public class EnemyShooter : EnemyDefault
         UIManager.Instance.TakeDamage();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
 
 
