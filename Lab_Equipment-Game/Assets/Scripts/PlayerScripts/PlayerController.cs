@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         // gets tyhe direction of the player, moves it Vertically ans horizontally, normalizes the speed, adds back in the y value
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
-        moveDirection = moveDirection.normalized * playerSpeed;
+        moveDirection = moveDirection * playerSpeed;
         moveDirection.y = yStore;
 
         Debug.Log(moveDirection);
