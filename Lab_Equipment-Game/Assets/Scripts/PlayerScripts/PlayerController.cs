@@ -71,6 +71,12 @@ public class PlayerController : MonoBehaviour
             anim.Play();
         }
 
+        if (!anim.isPlaying && controller.isGrounded)
+        {
+            anim.clip = anim.GetClip("idleAnim");
+            anim.Play();
+        }
+
         if(controller.isGrounded)
         {
             hasDashed = false;
