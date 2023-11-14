@@ -177,16 +177,5 @@ public class EnemyDefault : MonoBehaviour
         return target != null && (seeTarget || (!seeTarget && angerLingerTimer > 0.0f));
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health--;
-            if (health <= 0)
-            {
-                Instantiate(deathPrefab, transform.position, transform.rotation);
-                Destroy(this.gameObject);
-            }
-        }
-    }
+    
 }
