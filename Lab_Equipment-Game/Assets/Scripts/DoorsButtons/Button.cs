@@ -18,6 +18,8 @@ public class Button : MonoBehaviour
     
     public bool isActivated = false;
     private Door parentDoor;
+    
+    public AudioSource buttonSFX;
 
     private void Start()
     {
@@ -50,6 +52,7 @@ public class Button : MonoBehaviour
             lantern.materials = materialArray;
 
             gameObject.SetActive(false);
+            buttonSFX.Play();
         }
     }
 }
