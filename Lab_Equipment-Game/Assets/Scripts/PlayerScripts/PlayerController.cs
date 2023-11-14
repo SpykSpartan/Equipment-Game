@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public bool hasDash = false;
 
+    private Animation anim;
+
     //public Rigidbody rb;
 
     //Movement Variables
@@ -37,6 +39,10 @@ public class PlayerController : MonoBehaviour
         characterSelected = GameObject.Find("CharacterSelector").GetComponent<CharacterSelection>().selectedCharacter;
         transform.GetChild(characterSelected).gameObject.SetActive(true);
         characterModelObject = transform.GetChild(characterSelected).gameObject;
+
+        anim = characterModelObject.GetComponent<Animation>();
+        if (anim != null)
+            Debug.Log("anim found");
     }
 
     void Update()
@@ -59,7 +65,11 @@ public class PlayerController : MonoBehaviour
         moveDirection = moveDirection * playerSpeed;
         moveDirection.y = yStore;
 
-        Debug.Log(moveDirection);
+        if ((moveDirection.x != 0 || moveDirection.z != 0) && controller.isGrounded)
+        {
+            anim.clip = anim.GetClip("runAnim");
+            anim.Play();
+        }
 
         if(controller.isGrounded)
         {
@@ -68,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
         {
-            Debug.Log("shifty");
             controller.Move((new Vector3(moveDirection.x, 0, moveDirection.z) * dashForce) * Time.deltaTime);
             hasDashed = true;
         }
@@ -82,6 +91,9 @@ public class PlayerController : MonoBehaviour
 
             // applise jump
             moveDirection.y = jumpForce;
+
+            anim.clip = anim.GetClip("jumpAnim");
+            anim.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash)
@@ -92,7 +104,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && controller.isGrounded)
         {
-            Emote();
+            anim.clip = anim.GetClip("emoteAnim");
+            anim.Play();
         }
 
         //Detect pause input
@@ -113,10 +126,5 @@ public class PlayerController : MonoBehaviour
             moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
 
         controller.Move(moveDirection * Time.deltaTime);
-    }
-
-    private void Emote()
-    {
-
     }
 }
