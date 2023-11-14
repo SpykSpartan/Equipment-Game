@@ -7,6 +7,8 @@ public class Door : MonoBehaviour
     private Button[] buttonArray;
     private int activatedButtonsCount;
 
+    public AudioSource GateSFX;
+
     private void Start()
     {
         buttonArray = new Button[transform.childCount];
@@ -26,6 +28,7 @@ public class Door : MonoBehaviour
 
         if (activatedButtonsCount == buttonArray.Length)
             OpenDoor();
+            GateSFX.Play();
     }
 
     private void OpenDoor()

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float dashForce;
     public bool hasDash = false;
+    public int counter = 0;
 
     private Animation anim;
 
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour
     private int characterSelected;
     private GameObject characterModelObject;
 
+    //audio
+    public AudioSource jumpSFX;
+    public AudioSource footStepSFX;
 
     void Start()
     {
@@ -69,6 +73,13 @@ public class PlayerController : MonoBehaviour
         {
             anim.clip = anim.GetClip("runAnim");
             anim.Play();
+            counter++;
+        }
+
+        if(counter > 150)
+        {
+            footStepSFX.Play();
+            counter = 0;
         }
 
         if (!anim.isPlaying && controller.isGrounded)
@@ -100,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
             anim.clip = anim.GetClip("jumpAnim");
             anim.Play();
+            jumpSFX.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash)

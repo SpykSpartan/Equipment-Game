@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    public AudioSource shootingSFX;
+
     private void Awake()
     {
         readyToShoot = true;
@@ -49,6 +51,7 @@ public class Projectile : MonoBehaviour
         if (readyToShoot && shooting)
         {
             Shoot();
+            shootingSFX.Play();
         }
     }
 
