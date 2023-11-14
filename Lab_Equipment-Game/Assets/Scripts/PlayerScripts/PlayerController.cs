@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float dashForce;
     public bool hasDash = false;
+    private Animator mAnimator;
 
     //public Rigidbody rb;
 
     //Movement Variables
-    private Vector3 moveDirection;
+    public Vector3 moveDirection;
     public float gravityScale;
 
 
@@ -25,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private int characterSelected;
     private GameObject characterModelObject;
 
-
     void Start()
     {
         //RigidBody
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
         //Gets aspects of the player
         controller = GetComponent<CharacterController>();
+        mAnimator = GetComponent<Animator>();
 
         characterSelected = GameObject.Find("CharacterSelector").GetComponent<CharacterSelection>().selectedCharacter;
         transform.GetChild(characterSelected).gameObject.SetActive(true);
