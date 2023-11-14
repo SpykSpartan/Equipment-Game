@@ -137,7 +137,7 @@ public class EnemyShooter : EnemyDefault
     protected void Fire()
     {
         UIManager.Instance.TakeDamage();
-        audioRef.clip = audios[3];
+        audioRef.clip = audios[2];
         audioRef.Play();
     }
 
@@ -149,8 +149,7 @@ public class EnemyShooter : EnemyDefault
             if (health <= 0)
             {
                 Instantiate(deathPrefab, transform.position, transform.rotation);
-                audioRef.clip = audios[2];
-                audioRef.Play();
+                
                 Destroy(this.gameObject);
             }
         }
