@@ -21,6 +21,8 @@ public class EnemyShooter : EnemyDefault
     [SerializeField]
     private AudioSource audioRef;
 
+    private BGMScript bgmRef;
+
     public List<AudioClip> audios = new List<AudioClip>();
 
     private new void Awake()
@@ -29,6 +31,8 @@ public class EnemyShooter : EnemyDefault
         currentCharge = bulletChargeMax; //set charge to max charge
         laserSight.GetComponent<EnemyLaserScript>().maxChargeTimer = bulletChargeMax;
         laserSight.SetActive(false);
+
+        bgmRef = GameObject.Find("BGM").GetComponent<BGMScript>();
     }
 
 
@@ -60,6 +64,7 @@ public class EnemyShooter : EnemyDefault
                 audioRef.clip = audios[0];
                 Debug.Log("Test Message- Alerted");
                audioRef.Play();
+                bgmRef.AdjustAudio(1); 
                 engaging = true;
             }
         }
@@ -70,6 +75,7 @@ public class EnemyShooter : EnemyDefault
                 alertAnim.SetTrigger("Confused");
                 audioRef.clip = audios[1];
                 audioRef.Play();
+                bgmRef.AdjustAudio(-1);
                 engaging = false;
             }
 
@@ -149,7 +155,8 @@ public class EnemyShooter : EnemyDefault
             if (health <= 0)
             {
                 Instantiate(deathPrefab, transform.position, transform.rotation);
-                
+                if (engaging)
+                bgmRef.AdjustAudio(-1);
                 Destroy(this.gameObject);
             }
         }
